@@ -1,0 +1,4 @@
+elasticsearch==7.10.0
+farm-haystack==0.7.0
+Flask==1.1.2
+gunicorn==20.0.4

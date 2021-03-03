@@ -1,234 +1,360 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<html>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Context Based Question Answering is an easy to use search engine for extractive QA">
+    <meta name="author" content="Karthik Bhaskar">
+    <title>Context Based Question Answering</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='dropzone.css') }}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/1569bcbc3e.js" crossorigin="anonymous"></script>         
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/1569bcbc3e.js"></script>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <title>Question Answering</title>
-    <style>
-      body {
-        background-color: #222831;
-      }
-    </style>
+</head>
 
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 mb-4 mx-auto mt-5">
+                <div class="card">
+                    <div class="card-header">
+                        <br>
+                        <center>
+                            <h5> Context Based Question Answering</h5><br>
+                        </center>
 
-<!--     <script type="text/javascript">
-window.onload = function(){
-   document.getElementById('apply').onclick = function(e){
-       alert(document.getElementById("customSwitch2").value);
-       return false;
-   }
-}
-</script>
+                        <a class="github-button"
+                            href="https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering/subscription"
+                            data-icon="octicon-eye"
+                            aria-label="Watch Karthik-Bhaskar/Context-Based-Question-Answering on GitHub">Watch</a>
+                        <a class="github-button"
+                            href="https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering"
+                            data-icon="octicon-star"
+                            aria-label="Star Karthik-Bhaskar/Context-Based-Question-Answering on GitHub">Star</a>
+                        <a class="github-button"
+                            href="https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering/fork"
+                            data-icon="octicon-repo-forked"
+                            aria-label="Fork Karthik-Bhaskar/Context-Based-Question-Answering on GitHub">Fork</a>
 
-
- --> 
-
-  </head>
-
-  <body>
-
-
-
-
-
-  <div class="container">
-    <div class="row">
-
-
-
-
-    <div class="col-md-9 col-lg-9 col-xl-9 mb-4 mx-auto mt-5">
+                        <div class="text-right">
+                            <button type="button" class="btn btn-dark" data-toggle="modal"
+                                data-target="#staticBackdrop">
+                                <i class="fas fa-cogs fa-1x"></i>
+                            </button>
+                        </div>
 
 
-      <div class="card">
-          <div class="card-header">
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Settings</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
 
-              <center> <h5> Context Based Question Answering</h5><br> </center>
+                                    <div class="modal-body">
+                                        <label><b>Inference Device</b></label><br>
 
-               <!-- Button trigger modal -->
-                <div class="text-right">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-<i class="fas fa-wrench"></i> Settings
-</button>
-</div>
+                                        <div class="custom-control custom-switch">
+                                            &nbsp;
+                                            <input type="checkbox" class="custom-control-input" id="gpuSwitch"
+                                                name="gpu" onclick="gpu();">
+                                            <label class="custom-control-label" for="gpuSwitch">GPU</label>
+                                        </div>
 
+                                        <hr>
+                                        <label><b>Pre-trained Transformers Models</b></label>
 
+                                        <select class="custom-select" name="pre_trained_model" id="models"
+                                            onchange="models();">
+                                            <option value="roberta" selected>RoBERTa (Language: English)</option>
+                                            <option value="bert">
+                                                BERT (Language: English)</option>
+                                            <option value="distilbert">
+                                                DistilBERT (Language: English)</option>
+                                            <option value="camembert">CamemBERT (Language: French/ Le Français)</option>
+                                        </select>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-context-tab" data-toggle="tab"
+                                    href="#nav-context" role="tab" aria-controls="nav-context" aria-selected="true"
+                                    style="color: black">Context <i class="fas fa-book fa-1x"></i></a>
+                                <a class="nav-item nav-link" id="nav-qa-tab" data-toggle="tab" href="#nav-qa" role="tab"
+                                    aria-controls="nav-qa" aria-selected="false" style="color: black">Q&A <i
+                                        class="fab fa-searchengin fa-1x"></i></a>
 
+                            </div>
+                        </nav>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Settings</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
- <form id="form1" action = "/settings" method="POST" enctype = "multipart/form-data">
-
-<div class="modal-body">
-  <label><b>Inference Device</b></label><br>
-
-  <div class="custom-control custom-switch">
-
-      <input type="checkbox" class="custom-control-input"  id="customSwitch2" name="gpu" {{gpu_check}}>
-                            <label class="custom-control-label" for="customSwitch2">GPU</label>
-
-
-  </div>
-
-<hr>
-<label><b>Pre-trained Transformers Models</b></label>
-
-                <select class="custom-select" name="pre_trained_model">
-                            <option value="1"  {{ selected_1 }}>roberta-base-squad2</option>
-            <option value="2"  {{ selected_2 }}>bert-large-uncased-whole-word-masking-squad2</option>
-            <option value="3"  {{ selected_3 }}>distilbert-base-uncased-distilled-squad</option>
-          </select>
-
-          <hr>
-          <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-4 pt-0">Document Store</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="ElasticSearch" {{ doc_checked_1 }}>
-          <label class="form-check-label" for="gridRadios1">
-            ElasticSearch
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="InMemory"  {{ doc_checked_2 }}>
-          <label class="form-check-label" for="gridRadios2">
-            InMemory
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="SQL" disabled  {{ doc_checked_3 }}>
-          <label class="form-check-label" for="gridRadios3">
-            SQL
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-       
-
-
-</div>
-
-          <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" id="apply" class="btn btn-primary">Apply</button>
-      </div>
-    </div>
-  </div>
-</div>
-</form>
-       
-
-          
-          </div>
-          <div class="card-body">
-            <form id="form1" action = "/" method="POST" enctype = "multipart/form-data">
-                <div class="form-group">
-                   <textarea class="form-control" name="context_input" id="exampleFormControlTextarea1" rows="15" placeholder="Add the context here."></textarea>                  <p> <br><center>Or</center> </p>
-
-                  <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="file" aria-describedby="inputGroupFileAddon04">
-                        <label class="custom-file-label" for="inputGroupFile02">{{ file }}</label>
                     </div>
-                  </div>
-                  <br>     <center>                           
-                  <!--  <div class="input-group-append">
-                   -->      <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon02">Add Context</button>
-<!--                     </div>
- -->
 
-</center> 
-              </div>
-            </form>
-            <form id="form2" action = "/question" method="POST" enctype = "multipart/form-data">
-              <div class="form-group"><br>
-                <hr><br>
-                <input class="form-control" id ="question1" name="question_input" placeholder="Ask a question based on the context or the pdf."></input>
-              </div>
-<!--               <button type="submit" class="btn btn-dark" onclick="return check();" disabled=""> <i class="fas fa-search"></i> Search</button>
- -->            </form>
-            <div class="row row-cols-1 row-cols-md-3">
-              <div class="col mb-4">
-                <div class="card border-primary">
-                  <div class="card-body text-primary">
-                    <h5 class="card-title">{{ answer1 }}</h5>
-                  </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-context" role="tabpanel"
+                                aria-labelledby="nav-context-tab">
+                                <br>
+                                <form id="form1">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="text_context" name="context_input"
+                                            placeholder="Add the context here." rows="15"
+                                            maxlength="1048576"></textarea>
+                                        <br>
+                                        <center>
+
+                                            <div id="successAlert"
+                                                class="alert alert-success text-center alert-dismissible" role="alert"
+                                                style="display:none">
+                                                <strong>Context Added!</strong>
+                                            </div>
+
+                                            <div id="errorAlert" class="alert alert-danger" role="alert"
+                                                style="display:none;"></div>
+                                            <br>Or
+                                        </center>
+                                    </div>
+                                </form>
+
+                                <div id="drop_file">
+                                    <form id="form3" action="{{ url_for('upload_file') }}" class="dropzone"
+                                        method="POST" enctype="multipart/form-data">
+                                    </form>
+                                    <script src="{{ url_for('static', filename='dropzone.js') }}"></script>
+                                </div>
+                                <br>
+                                <button class="btn btn-success float-right" type="button" id="next"
+                                    onclick="next();">Next <i class="fas fa-arrow-right"></i></button>
+
+                            </div>
+                            <div class="tab-pane fade" id="nav-qa" role="tabpanel" aria-labelledby="nav-qa-tab">
+
+                                <form id="form2">
+                                    <div class="form-group"><br>
+                                        <div class="input-group mb-3">
+                                            <input aria-describedby="button-addon2" aria-label="Question"
+                                                class="form-control" id="question_input" name="question_input"
+                                                placeholder="Ask a question based on the context added" type="text">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" id="button-addon2"
+                                                    onclick="return spin();" type="submit"><i
+                                                        class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <div id="testlabel">
+
+                                </div>
+                            </div>
+
+                            <div class="modal" id="timeoutAlert" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Session</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Your current session will expire in a minute.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <center>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-slash"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z" />
+                            </svg> Made with <i class="fas fa-heart" style="color:red"></i> by <a
+                                href="https://www.karthikbhaskar.in/" target="_blank" style="color: black">Karthik
+                                Bhaskar</a>
+                        </center>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-
     </div>
-  </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        function next(e) {
+
+            $('#nav-qa-tab').tab('show');
+
+        }
+
+        function spin() {
+            var x = $('#question_input').val()
+            if (x.trim().length == 0) {
+                return (false)
+            }
+
+            $('#testlabel').empty()
+            $('#testlabel').append('<div class="d-flex align-items-center"><strong>Looking For Answers ...</strong><div class="spinner-border text-success ml-auto" role="status" aria-hidden="true"></div></div>')
+            return (true)
+        }
 
 
+        var sessNoti = function () {
+            $('#timeoutAlert').modal('show');
+        }
+
+        var sessOut = function () {
+            $.ajax({
+                data: {
+                    session: "logout",
+                },
+                type: 'POST',
+                url: '/session_out'
+            });
+            window.open("/session_timeout", "_self");
+        }
+
+        $(document).ready(function () {
+        var timeLeft = {{ time_left }};
+        var timeLeftSec = timeLeft * 1000;
+        setTimeout(sessNoti, timeLeftSec - 60000);
+        setTimeout(sessOut, timeLeftSec);
+        });
+
+        function models() {
+            $.ajax({
+                data: {
+                    model: $('#models').val(),
+                },
+                type: 'POST',
+                url: '/models'
+            })
+        }
+
+        function gpu() {
+            $.ajax({
+                data: {
+                    gpu: $('#gpuSwitch').val(),
+                },
+                type: 'POST',
+                url: '/gpu'
+            })
+        }
+
+        $(document).ready(function () {
+            $('#text_context').focusout(function (event) {
+
+                var x = $('#text_context').val()
+                if (x.trim().length == 0) {
+                    return (false)
+                }
+                event.preventDefault();
+
+                $.ajax({
+                    data: {
+                        context: $('#text_context').val(),
+                    },
+                    type: 'POST',
+                    url: '/context'
+                })
+                    .done(function (data) {
+                        $('#successAlert').fadeIn(1000);
+                        setTimeout(function () {
+                            $('#successAlert').fadeOut(1000);
+                        }, 5000);
+                    });
+            });
+
+            $('#form2').on('submit', function (event) {
+                $('#button-addon2').prop('disabled', true);
+                $('#question_input').prop('disabled', true);
+                $('#text_context').prop('disabled', true);
+                $(".dz-hidden-input").prop("disabled", true);
+                $("#models").prop("disabled", true);
+                $("#gpuSwitch").prop("disabled", true);
+                event.preventDefault();
+                $.ajax({
+                    data: {
+                        question: $('#question_input').val(),
+                    },
+                    type: 'POST',
+                    url: '/question'
+                })
+                    .done(function (data) {
+                        $('#button-addon2').prop('disabled', false);
+                        $('#question_input').prop('disabled', false);
+                        $('#text_context').prop('disabled', false);
+                        $(".dz-hidden-input").prop("disabled", false);
+                        $("#models").prop("disabled", false);
+                        $("#gpuSwitch").prop("disabled", false);
 
 
+                        if (data.error) {
+                            $('#testlabel').empty()
+                            $('#testlabel').append('<div id="contextAlert" class="alert alert-info text-center alert-dismissible" role="alert" style="display:none"> <strong>Please Add Context!</strong> </div>')
+                            $('#contextAlert').fadeIn(100);
+                            setTimeout(function () {
+                                $('#contextAlert').fadeOut(100);
+                            }, 5000);
+                            return (true)
+                        }
 
+                        $('#testlabel').empty()
+                        $('#testlabel').append('<table class="table table-striped">  <thead class="thead-dark"><tr><th scope="col">Answers</th><th scope="col">Context</th><th scope="col">Document Title</th></tr></thead><tbody id="myTable"></tbody></table>')
 
+                        myArray = data.output
+                        buildTable(myArray)
 
+                        function buildTable(data) {
+                            var table = document.getElementById('myTable')
 
+                            for (var i = 0; i < data.length; i++) {
+                                var row = `<tr>
+							<td>${data[i].answer}</td>
+							<td>${data[i].context}</td>
+							<td>${data[i].meta}</td>
+					  </tr>`
+                                table.innerHTML += row
+                            }
+                            return (true)
+                        }
+                    });
+            });
+        });
 
+    </script>
 
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    <script crossorigin="anonymous" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 
-
-<script>
-    $('#inputGroupFile02').on('change',function(){
-        //get the file name
-        var fileName = $(this).val();
-        var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
-        //replace the "Choose a file" label
-        $(this).next('.custom-file-label').html(cleanFileName);
-    })
-</script>
-<script type="text/javascript">
-  function check()
-  {
-  if (!form2.question1.value)
-  {
-  alert ("Please enter a question.");
-  return (false);
-  }
-  return (true);
-  }
-</script>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
-  </body>
 </html>
