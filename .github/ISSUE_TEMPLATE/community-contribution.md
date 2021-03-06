@@ -2,7 +2,7 @@
 name: Community contribution
 about: 'I would like to contribute to this project '
 title: ''
-labels: I will contribute
+labels: contribution
 assignees: ''
 
 ---
