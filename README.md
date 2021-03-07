@@ -252,7 +252,7 @@ $ docker-compose down
 ---
 *Demo video on YouTube.*
 
-[![Alt text](https://img.youtube.com/vi/OQUFQ4N-CxY/0.jpg)](https://youtu.be/OQUFQ4N-CxY)
+[![Alt text](https://img.youtube.com/vi/vqy5XmDwKMQ/0.jpg)](https://youtu.be/vqy5XmDwKMQ)
 
 ### Features
 ---
