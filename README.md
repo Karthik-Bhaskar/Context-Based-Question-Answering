@@ -301,7 +301,7 @@ Future development:
 ### Citations
 ---
 
-```
+```bibtex
 @article{DBLP:journals/corr/abs-1810-04805,
   author    = {Jacob Devlin and
                Ming{-}Wei Chang and
@@ -322,7 +322,7 @@ Future development:
 
 ```
 
-```
+```bibtex
 @article{DBLP:journals/corr/abs-1907-11692,
   author    = {Yinhan Liu and
                Myle Ott and
@@ -347,7 +347,7 @@ Future development:
 }
 ```
 
-```
+```bibtex
 @article{DBLP:journals/corr/abs-1910-01108,
   author    = {Victor Sanh and
                Lysandre Debut and
@@ -367,7 +367,7 @@ Future development:
 }
 ```
 
-```
+```bibtex
 @article{DBLP:journals/corr/abs-1911-03894,
   author    = {Louis Martin and
                Benjamin M{\"{u}}ller and
