@@ -109,6 +109,16 @@ The motivation to implement the CBQA project is to make an easy-to-use interface
 ### Installation
 ---
 
+Before starting the installation, clone this repository using the following commands in the terminal.
+
+```console
+$ git clone https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering.git
+````
+
+```console
+$ cd Context-Based-Question-Answering/
+```
+
 You can get started using one of the two options,
 
  1. [Installation using pip](#installation-using-pip)
@@ -130,7 +140,7 @@ $ pip install -r requirements.txt
 
 Before executing the CBQA application, please start the Elasticsearch server. Elasticsearch is the DocumentStore type used in this application. To download and install the Elasticsearch, please check [here](https://www.elastic.co/downloads/elasticsearch).
 
-In case you are using the docker environment, run Elasticsearch on docker using the following commands in the terminal.
+In case you are using the docker environment, run Elasticsearch on docker using the following commands in the terminal. If you want to install the docker engine on your machine, please check [here](https://docs.docker.com/get-docker/).
 ```console
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.0
 ````
@@ -138,7 +148,7 @@ $ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.0
 $ docker run -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.0
 ```
 
- Make sure Elasticsearch server  is running using the following command in the terminal.
+Make sure the Elasticsearch server is running using the following command in the new terminal.
 ```console
 $ curl http://localhost:9200
 ```
@@ -166,14 +176,14 @@ $ curl http://localhost:9200
 
 After installing the dependency libraries and starting the Elasticsearch server, you are good to go.
 
-_To run the application using a WSGI server like [Gunicorn](https://gunicorn.org)._ Use the following command in the terminal.
+_To run the application using a WSGI server like [Gunicorn](https://gunicorn.org)._ Use the following command in the new terminal.
 ```console
 $ gunicorn -w 1 --threads 4 app:app
 ```
 
 This runs the application in Gunicorn server on [http://localhost:8000](http://localhost:8000/) with a single worker and 4 threads.
 
-_To run the application in the [flask](https://flask.palletsprojects.com/en/1.1.x/) development server (Not recommended using this in production)_. Use the following command in the terminal.
+_To run the application in the [flask](https://flask.palletsprojects.com/en/1.1.x/) development server (Not recommended using this in production)_. Use the following command in the new terminal.
 ```console
 $ python app.py
 ```
@@ -210,7 +220,7 @@ $ docker-compose up
 
 Please wait until all the services have started after pulling the images.
 
-Make sure Elasticsearch server is running using the following command in the terminal.
+Make sure the Elasticsearch server is running using the following command in the new terminal.
 ```console
 $ curl http://localhost:9200
 ```
@@ -243,7 +253,7 @@ Elasticsearch service will be running on [http://localhost:9200](http://localhos
 
 **Note**: When performing QA using pre-trained models, at first use, the selected model gets downloaded from the [Hugging Face's model hub](https://huggingface.co/models)  this may take a while depending on your internet speed.
 
-To stop the container, use the following command in the terminal.
+To stop the container, use the following command in the new terminal.
 ```console
 $ docker-compose down
 ```
