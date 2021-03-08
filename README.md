@@ -176,19 +176,19 @@ $ curl http://localhost:9200
 
 After installing the dependency libraries and starting the Elasticsearch server, you are good to go.
 
-_To run the application using a WSGI server like [Gunicorn](https://gunicorn.org)._ Use the following command in the new terminal.
-```console
-$ gunicorn -w 1 --threads 4 app:app
-```
+- _To run the application using a WSGI server like [Gunicorn](https://gunicorn.org)._ Use the following command in the new terminal.
+  ```console
+  $ gunicorn -w 1 --threads 4 app:app
+  ```
 
-This runs the application in Gunicorn server on [http://localhost:8000](http://localhost:8000/) with a single worker and 4 threads.
+  This runs the application in Gunicorn server on [http://localhost:8000](http://localhost:8000/) with a single worker and 4 threads.
 
-_To run the application in the [flask](https://flask.palletsprojects.com/en/1.1.x/) development server (Not recommended using this in production)_. Use the following command in the new terminal.
-```console
-$ python app.py
-```
+- _To run the application in the [flask](https://flask.palletsprojects.com/en/1.1.x/) development server (Not recommended using this in production)_. Use the following command in the new terminal.
+  ```console
+  $ python app.py
+  ```
 
-Now the application will be running in the flask development server on [http://localhost/5000](http://localhost/5000).
+  Now the application will be running in the flask development server on [http://localhost/5000](http://localhost/5000).
 
 In the application execution cases above, you should see the below statement (date and time will be different) in the terminal after the application has started.
 ```console
@@ -197,7 +197,8 @@ User tracker thread started @  2021-03-04 18:25:20.803277
 
 The above statement means that the thread handling the user connection has started, and the application is ready to accept users.
 
-**Note**: When performing QA using pre-trained models, at first use, the selected model gets downloaded from the [Hugging Face's model hub](https://huggingface.co/models)  this may take a while depending on your internet speed.
+
+**Note**: When performing QA using pre-trained models, at first use, the selected model gets downloaded from the [Hugging Face's model hub](https://huggingface.co/models) this may take a while depending on your internet speed. If you are re-starting the application while you are testing, make sure to remove the auto-created temporary user directories in the project and the user index on Elasticsearch (Will be fixed soon)
 
 
 #### Running as a docker container
@@ -246,12 +247,11 @@ You should get a response like the one below.
 }
 ```
 
-
 The CBQA application service in the docker container runs on [http://localhost:5000](http://localhost:5000/), the container name of the application will be **web-app**.
 
 Elasticsearch service will be running on [http://localhost:9200](http://localhost:9200/), and Kibana service will be running on [http://localhost:5601](http://localhost:5601/).
 
-**Note**: When performing QA using pre-trained models, at first use, the selected model gets downloaded from the [Hugging Face's model hub](https://huggingface.co/models)  this may take a while depending on your internet speed.
+**Note**: When performing QA using pre-trained models, at first use, the selected model gets downloaded from the [Hugging Face's model hub](https://huggingface.co/models) this may take a while depending on your internet speed. If you are re-starting the application while you are testing, make sure to remove the auto-created temporary user directories in the project and the user index on Elasticsearch (Will be fixed soon)
 
 To stop the container, use the following command in the new terminal.
 ```console
