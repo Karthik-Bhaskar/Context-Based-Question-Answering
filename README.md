@@ -210,6 +210,8 @@ To install the docker engine on your machine, please check [here](https://docs.d
 
 This project includes the [docker-compose.yml](./docker-compose.yml) file describing the services to get started quickly. The specified services in the file are Elasticsearch, Kibana, and the CBQA application.
 
+**Note**: Make sure to increase the resources (Memory) in your docker engine in case you are facing 137 exit code (out of memory).
+
 The [docker image](https://hub.docker.com/repository/docker/karthikbhaskar/context-based-question-answering) for the CBQA application has already been built and hosted on [the docker hub](https://hub.docker.com/).
 
 To start the complete package that includes Elasticsearch, Kibana, and CBQA application as a docker container.
@@ -260,7 +262,7 @@ $ docker-compose down
 
 ### Demo
 ---
-*Demo video on YouTube.*
+*Full demo video on YouTube.*
 
 [![Alt text](https://img.youtube.com/vi/vqy5XmDwKMQ/0.jpg)](https://youtu.be/vqy5XmDwKMQ)
 
@@ -274,7 +276,8 @@ Ready:
 * Simultaneous user handling support (While using WSGI server)
 
 Future development:
-* Genarative QA support
+* Ability to plugin large scale document corpus for the QA engine
+* Generative QA support
 * Additional QA Language support
 * Improvising UI
 
