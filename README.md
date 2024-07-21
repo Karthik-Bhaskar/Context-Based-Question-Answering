@@ -1,5 +1,6 @@
 ## Context Based Question Answering 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![GitHub license](https://img.shields.io/github/license/Karthik-Bhaskar/Context-Based-Question-Answering)](https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering/blob/main/LICENSE)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+ [![GitHub license](https://img.shields.io/github/license/Karthik-Bhaskar/Context-Based-Question-Answering)](https://github.com/Karthik-Bhaskar/Context-Based-Question-Answering/blob/main/LICENSE)
 
 
 **Context-Based Question Answering** is an easy-to-use **Extractive QA** search engine, which extracts answers to the question based on the provided context.
@@ -284,7 +285,8 @@ Future development:
 ### Status
 ---
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+
 
 ### License
 ---
